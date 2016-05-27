@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+
+</head>
+<body>
+<h1> Add Students</h1>
+<form>
+    First Name :<input type="text" placeholder="Enter first name" id="fname"> <br/>
+    last Name :<input type="text" placeholder="Enter last name" id="lname"> <br/>
+    Fee  :<input type="text" placeholder="Enter Fee " id="fee"> <br/>
+
+    <button type="button" id="btn1">Submit</button>
+</form>
+
+
+<script src="js/jquery-1.12.3.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+    $("#btn1").click(function () {
+        fn=$("#fname").val();
+        ln=$("#lname").val();
+        fe=$("#fee").val();
+        $.post("add.php",{firstname: fn, lastname: ln, fee: fe}, function (data, status) {
+            alert("our data: "+ data + " == Status : "+ status);
+        })
+    });
+});
+</script>
+</body>
+</html>
